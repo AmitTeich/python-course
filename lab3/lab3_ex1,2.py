@@ -15,7 +15,7 @@ ages  = [20, 21, 18, 18, 19, 20, 20, 19, 19, 19, 22, 19]
 
 # ex1 - write the following function to combine the two lists into a dictionary
 def combine_lists(keys, values):
-    d = dict()  # option I
+  # option I
     d = {}      # option II
     for i in range(len(keys)):
      d[keys[i]] = values[i]
