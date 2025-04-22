@@ -44,26 +44,31 @@ def main():
     min_list = list()
     max_temp = float('-inf')
     max_list = list()
+    avg_temp = 0
+    counter_number_of_temp = 0
     for line in f:
         l = line.split()
         temp = float(l[1])
-        if temp >= max_temp:
-            if temp > max_temp:
-                max_list.clear()
+        avg_temp+=temp
+        counter_number_of_temp+=1
+        if temp > max_temp:
+            max_list = [l[0]]
             max_temp = temp
+        elif temp == max_temp:
             max_list.append(l[0])
         if temp < min_temp:
-            if temp < min_temp:
-                min_list.clear()
-            min_list.append(l[0])
+            min_list = [l[0]]
             min_temp = temp
+        elif temp == min_temp:
+            min_list.append(l[0])
+    avg_temp/=counter_number_of_temp
     f.close()
 
     print("min temp: ",min_temp)
     print("min times: ",min_list)
     print("max temp: ",max_temp)
     print("max times: ",max_list)
-    print(f"avg:")
+    print(f"avg: {avg_temp:.2f}")
 
 
 if __name__ == '__main__':
