@@ -13,10 +13,10 @@ def word_frequency(file) :
                 else: l+=char.lower()
         cleanedWords=l.split()
         for word in cleanedWords:
-            if word not in wordAppears:
-                wordAppears[word] = 1
-            else:
+            try:
                 wordAppears[word] += 1
+            except:
+                wordAppears[word] = 1
     f.close()
     return wordAppears
 

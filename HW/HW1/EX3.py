@@ -25,10 +25,13 @@ def Build_student_records(studentFile,gradesFile):
     return student_records
 
 
+def main():
+    l = Build_student_records('students.txt','grades.txt')
+    for lst,d in l:
+        print(lst)
+        print(f"       ", end="")
+        grade = [f"{key}:{d[key]}" for key in d]
+        print(", ".join(grade))
 
-l = Build_student_records('students.txt','grades.txt')
-for lst,d in l:
-    print(lst)
-    print(f"       ", end="")
-    grade = [f"{key}:{d[key]}" for key in d]
-    print(", ".join(grade))
+if __name__ == '__main__':
+    main()

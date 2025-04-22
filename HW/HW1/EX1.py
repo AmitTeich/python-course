@@ -26,11 +26,11 @@ def Max3(file):
     return maxNumbers
 
 
-
-
-
-print(Max3('data1.txt'))
-print(Max3('data2.txt'))
+def main():
+    print(Max3('data1.txt'))
+    print(Max3('data2.txt'))
+if __name__ == '__main__':
+    main()
 
 
 
