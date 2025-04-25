@@ -1,37 +1,34 @@
 def Build_student_records(studentFile,gradesFile):
     f1 = open (studentFile)
-    students = list()
+    students_dic = {}
     for line in f1:
-        line = line.strip()
-        students.append(line)
+        line = line.strip().split(" ",1)
+        students_dic[line[0]] = line[1]
     f1.close()
     f2 = open(gradesFile)
     student_grades = list()
     for line in f2:
-        line = line.strip()
-        item = line.split()
-        student_grades.append(item)
+        line = line.strip().replace(",","").split()
+        student_grades.append(line)
     f2.close()
     student_records = list()
-    for j in range(len(students)):
-        item=student_grades[j]
-        dic = {}
-        for i in range(1,len(item)):
-            arr = item[i].split(":")
-            arr[1] = arr[1].replace(",","")
-            dic[arr[0]] = arr[1]
-        l = [students[j],dic]
-        student_records.append(l)
+    for entry in student_grades:
+        student_id = entry[0]
+        grades = [x.split(":") for x in entry[1:]]
+        dic = {key: val for key,val in grades}
+        student_records.append([student_id, students_dic[student_id], dic])
+    student_records.sort(key = lambda x:x[0])
     return student_records
 
 
 def main():
-    l = Build_student_records('students.txt','grades.txt')
-    for lst,d in l:
-        print(lst)
+    student_records = Build_student_records('students.txt','grades.txt')
+    for student in student_records:
+        print(f"{student[0]} {student[1]}")
         print(f"       ", end="")
-        grade = [f"{key}:{d[key]}" for key in d]
+        grade = [f"{key}:{student[2][key]}" for key in sorted(student[2])]
         print(", ".join(grade))
 
 if __name__ == '__main__':
     main()
+
