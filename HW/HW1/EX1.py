@@ -19,8 +19,9 @@ def Max3(file):
 
 
 def main():
-    print(Max3('data1.txt'))
-    print(Max3('data2.txt'))
+    print(Max3('data1.txt')) #[1 2 3 4 5]
+    print(Max3('data2.txt')) #[10 3 5 2 6 8 1]
+
 if __name__ == '__main__':
     main()
 
