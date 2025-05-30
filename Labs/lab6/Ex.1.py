@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime,date
 
 #Ex.1
 def db_open(filename):
@@ -53,8 +53,8 @@ def db_save(keys, records, file):
 
 #Ex.5
 def find_age(birthday):
-    birth_date = datetime.strptime(birthday, "%m/%d/%Y")
-    today = datetime.today()
+    birth_date = datetime.strptime(birthday, "%m/%d/%Y").date()
+    today = date.today()
     age = today.year - birth_date.year
     if (today.month, today.day) < (birth_date.month, birth_date.day):
         age-=1
@@ -88,10 +88,10 @@ def db_query2(dbfile, filename):
 
 
 #db_print('db.csv',3)
-# header, f = db_open('db.csv')
-# rec = db_create_record(header,f)
-# db_print_record(rec.keys(),rec)
-records, header = db_create_list_of_record('db.csv',999)
+#header, f = db_open('db.csv')
+#rec = db_create_record(header,f)
+#db_print_record(rec.keys(),rec)
+#records, header = db_create_list_of_record('db.csv',999)
 #db_save(header,records,'new_data.csv')
 #age = find_age(records[0]["Birthday"])
 #print(age)
