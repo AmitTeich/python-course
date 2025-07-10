@@ -25,7 +25,7 @@ class Cell(Rectangle):
 
         self._drawn_id = Rectangle.draw(self, **kwargs)
         # add a tag name to object id (that was just printed)
-#       canvas.addtag_withtag(self.name, self.drawn_id)
+#       _canvas.addtag_withtag(self.name, self.drawn_id)
         p = self.center()
 #       tags = kwargs.get('tags', [])
 #       tags.append('text')

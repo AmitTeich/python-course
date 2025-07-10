@@ -61,7 +61,7 @@ class Rectangle:
         kwargs.setdefault('fill',"blue")
         kwargs.setdefault('activefill', "red")
         # USE ONE OF THE FOLLOWING LINES ACCORDING TO YOUR SOLUTION:
-        #id = canvas.create_rectangle(self._x1+dx, self._y1+dy, self._x2+dx, self._y2+dy, **kwargs)
+        #id = _canvas.create_rectangle(self._x1+dx, self._y1+dy, self._x2+dx, self._y2+dy, **kwargs)
         id = canvas.create_rectangle(self._ll.X() + dx, self._ll.Y() + dy, self._ur.X() + dx, self._ur.Y() + dy, **kwargs)
         return id
 

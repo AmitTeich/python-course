@@ -7,22 +7,15 @@
 # PyScripter may not handle Tkinter well, so to run this example,
 # use the command line:
 #                       python prog.py
-
-import sys
-#print(sys.version_info.major)
-
-if(sys.version_info.major == 3):
-    from tkinter import *
-else:
-    from Tkinter import *
-
+from tkinter import *
+print("in graphics")
 try:
     rootWindow
 except NameError:
     rootWindow = Tk()
-    rootFrame = Frame(rootWindow, width=800, height=600, bg="white")
+    rootFrame = Frame(rootWindow, width=1000, height=600, bg="white")
     rootFrame.pack()
-    canvas = Canvas(rootFrame, width=800, height=600, bg="white")
+    canvas = Canvas(rootFrame, width=1000, height=600, bg="white")
     canvas.pack()
 
 

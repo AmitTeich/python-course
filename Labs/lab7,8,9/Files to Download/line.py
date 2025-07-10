@@ -43,7 +43,7 @@ class Line:
         y2 = self.p2.Y() + dy
         id = canvas.create_line(x1, y1, x2, y2, width=2, fill="blue")
         # change the kwargs so we can use the following line:
-        #id = canvas.create_line(x1, y1, x2, y2, **kwargs)
+        #id = _canvas.create_line(x1, y1, x2, y2, **kwargs)
 
         return id
 

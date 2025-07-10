@@ -5,7 +5,6 @@ import math, time
 #  Point Class  #
 #               #
 #################
-from graphics import *
 import math
 
 class Point:
@@ -40,17 +39,16 @@ class Point:
         self._x*=sx
         self._y*=sy
 
-    def draw(self,**kwargs):
-        dx = kwargs.pop('offsetx', 400)
-        dy = kwargs.pop('offsety', 300)
-        x1 = self._x-4+dx
-        y1 = self._y-4+dy
-        x2 = self._x+4+dx
-        y2 = self._y+4+dy
+    def draw(self,canvas,**kwargs):
+        # dx = kwargs.pop('offsetx', 400)
+        # dy = kwargs.pop('offsety', 300)
+        x1 = self._x-4
+        y1 = self._y-4
+        x2 = self._x+4
+        y2 = self._y+4
         kwargs.setdefault('fill', 'blue')
         kwargs.setdefault('outline',"")
-        id = canvas.create_rectangle(x1, y1, x2, y2,**kwargs)
-        return id
+        canvas.create_rectangle(x1, y1, x2, y2,**kwargs)
 
     def text(self,t,**kwargs):
         dx = kwargs.pop('offsetx', 400)
@@ -60,7 +58,7 @@ class Point:
         kwargs.setdefault('tags', ['TEXT', 'POINT'])
         id = canvas.create_text(self._x + dx, self._y + dy, text=t,**kwargs)
         ## kwargs['text'] = t
-        # id = canvas.create_text(self._x + dx, self._y + dy, **kwargs)
+        # id = _canvas.create_text(self._x + dx, self._y + dy, **kwargs)
         return id
 
 
